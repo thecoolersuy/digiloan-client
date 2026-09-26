@@ -14,3 +14,5 @@ export interface RegisterRequest {
   fullName: string;
   password: string;
 }
+
+export type SeedProfile = "Saver" | "Spender";
