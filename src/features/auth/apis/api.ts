@@ -1,10 +1,10 @@
-import { apiClient } from "../../api/client";
+import { apiClient } from "../../../api/client";
 import type {
   AuthResponse,
   LoginRequest,
   RegisterRequest,
   SeedProfile,
-} from "../../types/auth";
+} from "../../../types/auth";
 
 export const register = async (
   data: RegisterRequest,

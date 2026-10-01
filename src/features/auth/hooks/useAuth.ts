@@ -1,8 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "../../../stores/authStore";
-import type { LoginRequest, RegisterRequest } from "../../../types/auth";
+import type {
+  LoginRequest,
+  RegisterRequest,
+  SeedProfile,
+} from "../../../types/auth";
 import { useMutation } from "@tanstack/react-query";
-import { login, register } from "../api";
+import { demologin, login, register } from "../apis/api";
 
 export function useLogin() {
   const setAuth = useAuthStore((state) => state.login);
@@ -11,7 +15,7 @@ export function useLogin() {
   return useMutation({
     mutationFn: (data: LoginRequest) => login(data),
     onSuccess: (response) => {
-      setAuth(response.token, response.email);
+      setAuth(response.token, response.email, response.fullName);
       navigate("/dashboard");
     },
   });
@@ -23,8 +27,8 @@ export function useRegister() {
   return useMutation({
     mutationFn: (data: RegisterRequest) => register(data),
     onSuccess: (response) => {
-      setAuth(response.token, response.email);
-      navigate("/dashboard");
+      setAuth(response.token, response.email, response.fullName);
+      navigate("/login");
     },
   });
 }
@@ -34,9 +38,9 @@ export function useDemoLogin() {
   const setAuth = useAuthStore((state) => state.login);
 
   return useMutation({
-    mutationFn: (data: RegisterRequest) => register(data),
+    mutationFn: (data: SeedProfile) => demologin(data),
     onSuccess: (response) => {
-      setAuth(response.token, response.email);
+      setAuth(response.token, response.email, response.fullName);
       navigate("/dashboard");
     },
   });

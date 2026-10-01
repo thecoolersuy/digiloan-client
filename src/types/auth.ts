@@ -1,6 +1,7 @@
 export interface AuthResponse {
   token: string;
   email: string;
+  fullName: string;
   expiresAtUtc: string;
 }
 
@@ -15,4 +16,4 @@ export interface RegisterRequest {
   password: string;
 }
 
-export type SeedProfile = "Saver" | "Spender";
+export type SeedProfile = 0 | 1;
