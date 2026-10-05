@@ -4,6 +4,8 @@ import { ProtectedRoute } from "./routes/ProtectedRoute";
 import { RegisterPage } from "./features/auth/pages/RegisterPage";
 import { AppLayout } from "./layouts/AppLayout";
 import { DashboardPage } from "./features/dashboard/pages/DashboardPage";
+import TransactionPage from "./features/transactions/pages/TransactionPage";
+import RequestLoanPage from "./features/loans/pages/RequestLoanPage";
 
 function App() {
   return (
@@ -14,26 +16,8 @@ function App() {
         <Route element={<ProtectedRoute />}>
           <Route element={<AppLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
-            <Route
-              path="/transactions"
-              element={
-                <section className="min-h-screen p-6 md:p-10">
-                  <h1 className="font-heading text-3xl font-bold text-ink">
-                    Transactions
-                  </h1>
-                </section>
-              }
-            />
-            <Route
-              path="/loans"
-              element={
-                <section className="min-h-screen p-6 md:p-10">
-                  <h1 className="font-heading text-3xl font-bold text-ink">
-                    Request Loan
-                  </h1>
-                </section>
-              }
-            />
+            <Route path="/transactions" element={<TransactionPage />} />
+            <Route path="/loans" element={<RequestLoanPage />} />
           </Route>
         </Route>
         <Route path="*" element={<Navigate to="/login" replace />} />

@@ -7,6 +7,7 @@ export interface LedgerEntry {
   createdAtUtc: string;
 }
 
+
 export type TransactionType =
   | "OpeningBalance"
   | "SalaryCredit"
