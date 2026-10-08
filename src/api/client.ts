@@ -9,7 +9,7 @@ apiClient.interceptors.request.use((config) => {
   const token = useAuthStore.getState().token;
 
   if (token) {
-    config.headers.Authorization = "Bearer ${token}";
+    config.headers.Authorization = `Bearer ${token}`;
   }
 
   return config;
@@ -22,7 +22,7 @@ apiClient.interceptors.response.use(
       const requestUrl = error.config?.url ?? "";
 
       const isAuthRequest =
-        requestUrl.Url.includes("/auth/login") ||
+        requestUrl.includes("/auth/login") ||
         requestUrl.includes("/auth/register");
       if (!isAuthRequest) {
         useAuthStore.getState().logout();
