@@ -1,3 +1,4 @@
+import { DatabaseX } from "lucide-react";
 import type { SeedProfile } from "../../../types/auth";
 
 interface Props {
@@ -8,6 +9,7 @@ interface Props {
 export function EmptyState({ onSeed, isLoading }: Props) {
   return (
     <div className="bg-white rounded-2xl shadow-sm flex flex-col items-center justify-center py-20 gap-4">
+      <DatabaseX size={120} color="#1F395E" strokeWidth={1.25} />
       <p className="font-heading text-lg text-ink">
         No transactional data found
       </p>
