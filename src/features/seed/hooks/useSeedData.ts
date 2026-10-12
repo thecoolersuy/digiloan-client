@@ -8,6 +8,7 @@ export function useSeedData() {
     mutationFn: (profile: SeedProfile) => seedData(profile),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["account-overview"] });
+      queryClient.invalidateQueries({ queryKey: ["transactions"] });
     },
   });
 }

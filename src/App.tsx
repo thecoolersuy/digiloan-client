@@ -4,7 +4,7 @@ import { ProtectedRoute } from "./routes/ProtectedRoute";
 import { RegisterPage } from "./features/auth/pages/RegisterPage";
 import { AppLayout } from "./layouts/AppLayout";
 import { DashboardPage } from "./features/dashboard/pages/DashboardPage";
-import TransactionPage from "./features/transactions/pages/TransactionPage";
+import { TransactionsPage } from "./features/transactions/pages/TransactionPage";
 import RequestLoanPage from "./features/loans/pages/RequestLoanPage";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <Route element={<ProtectedRoute />}>
           <Route element={<AppLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/transactions" element={<TransactionPage />} />
+            <Route path="/transactions" element={<TransactionsPage />} />
             <Route path="/loans" element={<RequestLoanPage />} />
           </Route>
         </Route>

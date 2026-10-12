@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { EmptyState } from "../components/EmptyState";
 import StatCards from "../components/StatCards";
-import { TransactionsTable } from "../components/TransactionsTable";
+import { TransactionsTable } from "../../../components/TransactionsTable";
 import { TrendChart } from "../components/TrendChart";
 import { useAccountOverview } from "../hooks/useAccountOverview";
 import { useSeedData } from "../../seed/hooks/useSeedData";
