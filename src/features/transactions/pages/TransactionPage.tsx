@@ -5,7 +5,7 @@ import { TransactionsTable } from "../../../components/TransactionsTable";
 import { Pagination } from "../../../components/Pagination";
 import { useTransactions } from "../hooks/useTransactions";
 
-const PAGE_SIZE = 10;
+const pageSize = 10;
 
 const ranges = [
   { label: "All time", days: null },
@@ -22,12 +22,10 @@ export function TransactionsPage() {
 
   const { data, isLoading, isError, isFetching } = useTransactions({
     page,
-    pageSize: PAGE_SIZE,
+    pageSize: pageSize,
     rangeDays,
   });
 
-  // Edge case: re-seeding can shrink the list while you were on a later page,
-  // leaving you on a page that no longer exists. Fall back to page 1.
   useEffect(() => {
     if (data && page > 1 && data.items.length === 0) setPage(1);
   }, [data, page]);
@@ -50,7 +48,7 @@ export function TransactionsPage() {
 
   const handleRangeChange = (value: string) => {
     setRangeDays(value === "all" ? null : Number(value));
-    setPage(1); // a new filter means a new result set; start from the top
+    setPage(1);
     setIsRangeOpen(false);
   };
 
@@ -59,7 +57,7 @@ export function TransactionsPage() {
       <div className="flex flex-col gap-6">
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="font-noto font-bold text-3xl text-ink">
+            <h1 className="font-noto font-bold text-2xl text-ink">
               Transactions
             </h1>
             <p className="text-sm text-gray-500">
@@ -156,7 +154,7 @@ export function TransactionsPage() {
             </div>
             <Pagination
               page={page}
-              pageSize={PAGE_SIZE}
+              pageSize={pageSize}
               totalCount={data.totalCount}
               onPageChange={setPage}
             />

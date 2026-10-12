@@ -18,7 +18,7 @@ export function Pagination({
   const buttonClass =
     "bg-white border border-[#e7e9ee] rounded-lg px-4 py-2.5 text-sm font-semibold disabled:text-[#b7bec8] disabled:cursor-not-allowed";
   return (
-    <div className="flex items-center justify-end gap-10 px-5 py-4 bg-[#fbfbfc] border-t border-[#d9dade] text-sm font-medium text-[#526174]">
+    <div className="flex items-center justify-end gap-10 px-5 py-4 bg-background border-t border-[#d9dade] text-sm font-medium text-[#526174]">
       <span>Rows per page: {pageSize}</span>
       <span>
         {start}–{end} of {totalCount}

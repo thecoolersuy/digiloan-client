@@ -35,7 +35,7 @@ export function DashboardPage() {
   const hasData = overview.recentTransactions.length > 0;
   return (
     <section className="min-h-screen p-6 md:p-10">
-      <h1 className="font-noto text-3xl font-bold text-ink">
+      <h1 className="font-noto text-2xl font-bold text-ink">
         Fintech Dashboard
       </h1>
       <div className="flex flex-col gap-6">
