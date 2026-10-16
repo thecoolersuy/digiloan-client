@@ -24,6 +24,25 @@ export interface LoanApplicationResult {
   status: LoanStatus;
 }
 
+export interface LoanQuoteResult {
+  requestedAmount: number;
+  tenorMonths: number;
+  interestPercentage: number;
+  interestAmount: number;
+  repaymentAmount: number;
+  repaymentDate: string;
+}
+
+export interface LoanApplicationDto {
+  createdAtUtc: string;
+  id: string;
+  requestedAmount: number;
+  interestRate: number;
+  loanTenor: number;
+  status: LoanStatus;
+  repaymentDate: string;
+}
+
 export type LoanStatus =
   | "Pending"
   | "Approved"
