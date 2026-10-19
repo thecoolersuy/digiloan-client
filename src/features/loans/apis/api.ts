@@ -1,12 +1,20 @@
 import { apiClient } from "../../../api/client";
 import type {
-  LoanApplicationDto,
+  EligibilityResult,
+  LoanApplication,
   LoanApplicationRequest,
   LoanApplicationResult,
   LoanQuoteResult,
 } from "../../../types/loan";
 
-export const getQuote = async (
+export const getEligibilityScore = async (): Promise<EligibilityResult> => {
+  const response = await apiClient.get<EligibilityResult>(
+    "/api/credit-scoring",
+  );
+  return response.data;
+};
+
+export const getLoanQuote = async (
   request: LoanApplicationRequest,
 ): Promise<LoanQuoteResult> => {
   const response = await apiClient.post<LoanQuoteResult>(
@@ -16,14 +24,14 @@ export const getQuote = async (
   return response.data;
 };
 
-export const getLoanApplications = async (): Promise<LoanApplicationDto[]> => {
-  const response = await apiClient.get<LoanApplicationDto[]>(
+export const getLoanApplications = async (): Promise<LoanApplication[]> => {
+  const response = await apiClient.get<LoanApplication[]>(
     "/disburse/applications",
   );
   return response.data;
 };
 
-export const disburse = async (
+export const disburseLoan = async (
   request: LoanApplicationRequest,
 ): Promise<LoanApplicationResult> => {
   const response = await apiClient.post<LoanApplicationResult>(

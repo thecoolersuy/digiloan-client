@@ -33,14 +33,15 @@ export interface LoanQuoteResult {
   repaymentDate: string;
 }
 
-export interface LoanApplicationDto {
+export interface LoanApplication {
+  applicationNumber: number;
   createdAtUtc: string;
-  id: string;
   requestedAmount: number;
   interestRate: number;
   loanTenor: number;
-  status: LoanStatus;
+  repaymentAmount: number;
   repaymentDate: string;
+  status: LoanStatus;
 }
 
 export type LoanStatus =
