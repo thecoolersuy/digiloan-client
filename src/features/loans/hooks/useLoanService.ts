@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type {
   LoanApplicationRequest,
   LoanApplicationResult,
@@ -10,6 +10,7 @@ import {
   getLoanQuote,
 } from "../apis/api";
 import { queryKeys } from "../../../api/queryKeys";
+import { invalidateQuery } from "../../../api/invalidate";
 
 export function useLoanQuote() {
   return useMutation({
@@ -32,9 +33,11 @@ export function useLoanApplication() {
 }
 
 export function useDisbuseLoan() {
+  const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (
       request: LoanApplicationRequest,
     ): Promise<LoanApplicationResult> => disburseLoan(request),
+    onSuccess: () => invalidateQuery(queryClient),
   });
 }
