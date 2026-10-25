@@ -9,7 +9,7 @@ import type {
 
 export const getEligibilityScore = async (): Promise<EligibilityResult> => {
   const response = await apiClient.get<EligibilityResult>(
-    "/api/credit-scoring",
+    "/credit-scoring/eligibility",
   );
   return response.data;
 };

@@ -11,7 +11,7 @@ const styles: Record<LoanStatus, string> = {
 export function LoanStatusBadge({ status }: { status: LoanStatus }) {
   return (
     <span
-      className={`rounded-lg px-2 py-1 text-[10px] font-semibold ${styles[status]}`}
+      className={`rounded-lg px-3 py-2 text-[12px] font-semibold ${styles[status]}`}
     >
       {status}
     </span>

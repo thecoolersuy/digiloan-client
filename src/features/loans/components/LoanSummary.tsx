@@ -35,7 +35,7 @@ export function LoanSummary({
           </h3>
 
           <div
-            className="relative group flex items-center gap-1.5 text-brand text-[10px] font-bold cursor-help"
+            className="relative group flex items-center gap-1.5 text-brand text-[12px] font-semibold font-noto cursor-help"
             tabIndex={0}
           >
             <Info className="size-4" /> How is this calculated?
@@ -78,7 +78,7 @@ export function LoanSummary({
         <button
           onClick={onProceed}
           disabled={isApplying}
-          className="bg-brand text-white text-[11px] font-semibold rounded-full px-6 py-3 flex items-center gap-2 disabled:opacity-50"
+          className="bg-brand text-white text-[13px] font-medium font-noto rounded-full px-6 py-3 flex items-center gap-2 disabled:opacity-50"
         >
           {isApplying ? "Processing..." : "Proceed with this application"}{" "}
           <ArrowRight className="size-4" />
@@ -86,7 +86,7 @@ export function LoanSummary({
         <button
           onClick={onCancel}
           disabled={isApplying}
-          className="border border-brand text-brand text-[11px] font-semibold rounded-full px-6 py-3 flex items-center gap-2 disabled:opacity-50"
+          className="border border-brand text-brand text-[13px] font-medium font-noto rounded-full px-6 py-3 flex items-center gap-2 disabled:opacity-50"
         >
           Cancel Application <Trash2 className="size-4" />
         </button>

@@ -14,7 +14,7 @@ interface Props {
 }
 
 const inputClass =
-  "w-full h-[46px] border-[0.8px] border-[#aaa] rounded-sm bg-transparent px-4 text-base text-ink shadow-[0_0_3px_-1px_black] focus:outline-none focus:ring-2 focus:ring-brand";
+  "w-full h-[48px] border-[2px] border-[#aaa] rounded-sm bg-transparent px-4 text-base text-ink shadow-[0_0_3px_-1px_black] transition-colors duration-200 ease-out motion-reduce:transition-none focus:outline-none focus:border-brand font-noto font-medium text-ink";
 
 function Field({
   label,
@@ -27,11 +27,12 @@ function Field({
 }) {
   return (
     <div className="relative w-full max-w-[90.25]">
-      <label className="absolute -top-2.5 left-3 bg-background px-1 text-[10px] font-medium text-[#aaa]">
+      <label className="absolute -top-2.5 left-3 bg-background px-1 text-[12px] font-noto font-medium text-[#aaa]">
         {label}
       </label>
       {children}
-      {error && <p className="text-brand text-xs mt-1">{error}</p>}
+
+      <p className="text-brand text-xs mt-1 min-h-4">{error}</p>
     </div>
   );
 }
@@ -67,12 +68,12 @@ export function LoanForm({
       onChange={onEdit}
       className="flex flex-col gap-8"
     >
-      <h3 className="font-heading font-bold text-[15px] text-[#1f395e]">
+      <h3 className="font-noto font-bold text-[20px] text-[#1f395e]">
         Customize your loan application
       </h3>
 
       <Field label="Loan amount" error={errors.requestedAmount?.message}>
-        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-sm text-gray-500">
+        <span className="absolute left-4 top-5.5 -translate-y-1/2 text-sm text-gray-500 font-noto font-medium">
           NPR
         </span>
         <input
@@ -98,7 +99,7 @@ export function LoanForm({
       <button
         type="submit"
         disabled={isLoading}
-        className="self-start border border-brand text-brand text-[11px] font-semibold rounded-full px-6 py-3 disabled:opacity-50"
+        className="self-start border border-brand text-brand text-[13px] font-noto font-medium rounded-full px-6 py-3 disabled:opacity-50"
       >
         {isLoading ? "Calculating..." : "View Loan Summary"}
       </button>

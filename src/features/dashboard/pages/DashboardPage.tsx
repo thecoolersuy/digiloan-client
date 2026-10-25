@@ -6,7 +6,7 @@ import { TrendChart } from "../components/TrendChart";
 import { useAccountOverview } from "../hooks/useAccountOverview";
 import { useSeedData } from "../../seed/hooks/useSeedData";
 import { useAuthStore } from "../../../stores/authStore";
-import { Play } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 
 export function DashboardPage() {
   const { data: overview, isLoading, isError } = useAccountOverview();
@@ -83,9 +83,9 @@ export function DashboardPage() {
             <div className="flex justify-center">
               <Link
                 to="/transactions"
-                className="bg-brand text-white font-semibold text-sm px-6 py-2.5 rounded-full"
+                className="bg-brand text-white font-semibold text-sm px-6 py-2.5 rounded-full flex gap-2 items-center"
               >
-                View More →
+                View More <ArrowRight className="size-5" />
               </Link>
             </div>
           </>

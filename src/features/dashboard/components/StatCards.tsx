@@ -7,7 +7,7 @@ function formatCurrency(currentBalance: number) {
 }
 
 export function StatCards({ overview }: { overview: AccountOverview }) {
-  const [showBalance, setShowBalance] = useState(true);
+  const [showBalance, setShowBalance] = useState(false);
 
   const disbursementRate =
     overview.totalInflow > 0

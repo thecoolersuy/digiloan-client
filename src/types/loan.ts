@@ -4,7 +4,7 @@ export interface LoanApplicationRequest {
 }
 
 export interface EligibilityResult {
-  isElligible: boolean;
+  isEligible: boolean;
   creditScore: number;
   maxApprovedAmount: number;
   averageDailyBalance: number;
@@ -34,7 +34,7 @@ export interface LoanQuoteResult {
 }
 
 export interface LoanApplication {
-  applicationNumber: number;
+  id: string;
   createdAtUtc: string;
   requestedAmount: number;
   interestRate: number;
