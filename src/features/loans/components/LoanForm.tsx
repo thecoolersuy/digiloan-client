@@ -14,7 +14,7 @@ interface Props {
 }
 
 const inputClass =
-  "w-full h-[48px] border-[2px] border-[#aaa] rounded-sm bg-transparent px-4 text-base text-ink shadow-[0_0_3px_-1px_black] transition-colors duration-200 ease-out motion-reduce:transition-none focus:outline-none focus:border-brand font-noto font-medium text-ink";
+  "w-full h-[48px] border-[2px] border-[#aaa]  rounded-sm bg-transparent appearance-none px-4 text-base text-ink shadow-[0_0_3px_-1px_black] transition-colors duration-200 ease-out motion-reduce:transition-none focus:outline-none focus:border-brand font-noto font-medium text-ink pr-10";
 
 function Field({
   label,
@@ -26,7 +26,7 @@ function Field({
   children: ReactNode;
 }) {
   return (
-    <div className="relative w-full max-w-[90.25]">
+    <div className="relative w-full max-w-[600px]">
       <label className="absolute -top-2.5 left-3 bg-background px-1 text-[12px] font-noto font-medium text-[#aaa]">
         {label}
       </label>
@@ -94,6 +94,7 @@ export function LoanForm({
             </option>
           ))}
         </select>
+        
       </Field>
 
       <button
