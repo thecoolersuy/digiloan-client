@@ -52,7 +52,10 @@ export function LoginPage() {
               className="w-full border-2 border-gray-400 rounded-sm px-4 py-3 text-sm placeholder:text-gray-400 transition-colors duration-200 ease-out motion-reduce:transition-none focus:outline-none focus:border-brand"
               {...register("email")}
             />
-            <p className="text-brand text-xs mt-1 min-h-4" aria-live="polite">
+            <p
+              className="text-brand font-noto font-medium text-xs mt-1 min-h-4"
+              aria-live="polite"
+            >
               {errors.email?.message}
             </p>
           </div>
@@ -64,19 +67,22 @@ export function LoginPage() {
               className="w-full border-2 border-gray-400 rounded-sm px-4 py-3 text-sm placeholder:text-gray-400 transition-colors duration-200 ease-out motion-reduce:transition-none focus:outline-none focus:border-brand"
               {...register("password")}
             />
-            <p className="text-brand text-xs mt-1 min-h-4" aria-live="polite">
+            <p
+              className="text-brand font-noto font-medium text-xs mt-1 min-h-4"
+              aria-live="polite"
+            >
               {errors.password?.message}
             </p>
           </div>
 
-          <p className="text-xs text-gray-400 font-inter">
+          <p className="text-xs text-gray-400  font-inter">
             Don't have an Account?{" "}
             <Link to="/register" className="text-brand font-semibold">
               Tap Here !
             </Link>
           </p>
 
-          <p className="text-brand text-xs min-h-4" aria-live="polite">
+          <p className="text-brand text-xs font-noto font-medium min-h-4" aria-live="polite">
             {loginMutation.isError ? "Invalid email or password." : ""}
           </p>
 

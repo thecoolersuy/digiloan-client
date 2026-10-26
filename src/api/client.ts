@@ -1,9 +1,12 @@
 import axios from "axios";
 import { useAuthStore } from "../stores/authStore";
 
-export const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
-});
+const baseURL = import.meta.env.VITE_API_URL;
+
+if (!baseURL) {
+  throw new Error("VITE_API_URL is not set.Add it to .env locally.");
+}
+export const apiClient = axios.create({ baseURL });
 
 apiClient.interceptors.request.use((config) => {
   const token = useAuthStore.getState().token;

@@ -137,7 +137,7 @@ function RequestLoanPage() {
             />
 
             {applications.isError && (
-              <p className="text-sm text-red-600">
+              <p className="text-sm text-red-600 font-noto font-medium">
                 Unable to load your loan applications.
               </p>
             )}
@@ -165,7 +165,7 @@ function RequestLoanPage() {
 
             {eligibility.isError && (
               <div className="flex flex-col items-start gap-3">
-                <p className="text-brand text-sm">
+                <p className="text-brand text-sm font-noto font-medium">
                   {getErrorMessage(eligibility.error)}
                 </p>
                 <button
@@ -204,10 +204,17 @@ function RequestLoanPage() {
                     />
 
                     <p
-                      className="text-brand text-sm min-h-5"
+                      className="text-brand text-sm min-h-5 font-noto font-semibold flex gap-2 items-center"
                       aria-live="polite"
                     >
-                      {quote.isError ? getErrorMessage(quote.error) : ""}
+                      {quote.isError ? (
+                        <>
+                          <Info size={25} />
+                          {getErrorMessage(quote.error)}
+                        </>
+                      ) : (
+                        ""
+                      )}
                     </p>
 
                     {quote.data && (
