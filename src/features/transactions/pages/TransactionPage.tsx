@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import { TransactionsTable } from "../../../components/TransactionsTable";
-import { Pagination } from "../../../components/Pagination";
+import { Pagination } from "../components/Pagination";
 import { useTransactions } from "../hooks/useTransactions";
 
 const pageSize = 10;

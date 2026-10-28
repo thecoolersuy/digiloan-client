@@ -1,4 +1,4 @@
-import type { LedgerEntryDto } from "../types/dashboard";
+import type { LedgerEntryDto } from "../../../types/dashboard";
 
 const typeStyles: Record<string, string> = {
   OpeningBalance: "bg-[#e0f4eb] text-[#198d67]",

@@ -5,7 +5,7 @@ import type {
   RegisterRequest,
   SeedProfile,
 } from "../../../types/auth";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { demologin, login, register } from "../apis/api";
 
 export function useLogin() {
@@ -44,4 +44,16 @@ export function useDemoLogin() {
       navigate("/dashboard");
     },
   });
+}
+
+export function useLogout() {
+  const logout = useAuthStore((state) => state.logout);
+  const queryClient = useQueryClient();
+  const navigate = useNavigate();
+
+  return () => {
+    logout();
+    queryClient.clear();
+    navigate("/login", { replace: true });
+  };
 }

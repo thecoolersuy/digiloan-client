@@ -94,7 +94,6 @@ export function LoanForm({
             </option>
           ))}
         </select>
-        
       </Field>
 
       <button
