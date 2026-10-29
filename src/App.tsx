@@ -6,6 +6,7 @@ import { AppLayout } from "./layouts/AppLayout";
 import { DashboardPage } from "./features/dashboard/pages/DashboardPage";
 import { TransactionsPage } from "./features/transactions/pages/TransactionPage";
 import RequestLoanPage from "./features/loans/pages/RequestLoanPage";
+import NotFoundPage from "./components/NotFoundPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/" element={<Navigate to="/login" replace />} />
         <Route element={<ProtectedRoute />}>
           <Route element={<AppLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
@@ -20,7 +22,7 @@ function App() {
             <Route path="/loans" element={<RequestLoanPage />} />
           </Route>
         </Route>
-        <Route path="*" element={<Navigate to="/login" replace />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );

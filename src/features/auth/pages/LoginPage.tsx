@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Info } from "lucide-react";
 import bankgif from "../../../../public/gifs/movingbank.gif";
+import Spinner from "../../../components/Spinner";
 
 export function LoginPage() {
   const {
@@ -82,16 +83,18 @@ export function LoginPage() {
             </Link>
           </p>
 
-          <p className="text-brand text-xs font-noto font-medium min-h-4" aria-live="polite">
+          <p
+            className="text-brand text-xs font-noto font-medium min-h-4"
+            aria-live="polite"
+          >
             {loginMutation.isError ? "Invalid email or password." : ""}
           </p>
 
           <button
             type="submit"
-            disabled={loginMutation.isPending}
-            className="bg-brand text-white font-bold uppercase tracking-wide py-3 rounded-sm hover:opacity-90 disabled:opacity-50 transition"
+            className="bg-brand text-white font-bold min-h-12 uppercase tracking-wide py-3 rounded-sm hover:opacity-90 disabled:opacity-50 transition"
           >
-            {loginMutation.isPending ? "Logging in..." : "Login"}
+            {loginMutation.isPending ? <Spinner /> : "Login"}
           </button>
 
           <div className="relative flex items-center justify-center my-1">

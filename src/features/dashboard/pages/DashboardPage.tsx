@@ -8,14 +8,14 @@ import { useSeedData } from "../../seed/hooks/useSeedData";
 import { useAuthStore } from "../../../stores/authStore";
 import { ArrowRight, Play } from "lucide-react";
 import Spinner from "../../../components/Spinner";
+import { DashboardSkeleton } from "../components/DashboardSkeleton";
 
 export function DashboardPage() {
   const { data: overview, isLoading, isError } = useAccountOverview();
   const seedMutation = useSeedData();
   const fullName = useAuthStore((s) => s.fullName);
 
-  if (isLoading)
-    return <Spinner label="Please be patient, We are loading your data." />;
+  if (isLoading) return <DashboardSkeleton />;
   if (isError)
     return (
       <p className="text-center py-20 text-brand">

@@ -4,7 +4,7 @@ import { ChevronDown } from "lucide-react";
 import { TransactionsTable } from "../components/TransactionsTable";
 import { Pagination } from "../components/Pagination";
 import { useTransactions } from "../hooks/useTransactions";
-import Spinner from "../../../components/Spinner";
+import { TransactionSkeleton } from "../components/TransactionsSkeleton";
 
 const pageSize = 10;
 
@@ -30,7 +30,6 @@ export function TransactionsPage() {
   useEffect(() => {
     if (data && page > 1 && data.items.length === 0) setPage(1);
   }, [data, page]);
-
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       if (
@@ -52,6 +51,15 @@ export function TransactionsPage() {
     setPage(1);
     setIsRangeOpen(false);
   };
+
+  if (isLoading) return <TransactionSkeleton />;
+
+  if (isError)
+    return (
+      <p className="text-center py-20 text-brand">
+        Could not load transactions.
+      </p>
+    );
 
   return (
     <section className="min-h-screen p-6 md:p-10">
@@ -121,27 +129,18 @@ export function TransactionsPage() {
             )}
           </div>
         </div>
-
-        {isLoading && (
-          <Spinner label="Please be patient, We are loading your data." />
-        )}
-        {isError && (
-          <p className="text-center py-20 text-brand">
-            Could not load transactions.
-          </p>
-        )}
-
-        {data && data.totalCount === 0 && (
-          <div className="bg-white rounded-2xl shadow-sm py-16 text-center text-gray-500">
+        {data?.totalCount === 0 && (
+          <div className="rounded-2xl bg-white py-16 text-center text-gray-500 shadow-sm">
             <p>No transactions found.</p>
-            <Link to="/dashboard" className="text-brand font-semibold text-sm">
+
+            <Link to="/dashboard" className="text-sm font-semibold text-brand">
               Seed sample data from the Overview page →
             </Link>
           </div>
         )}
 
         {data && data.totalCount > 0 && (
-          <div className="rounded-3xl overflow-hidden border border-[#d9dade]">
+          <div className="overflow-hidden rounded-3xl border border-[#d9dade]">
             <div
               className={
                 isFetching
@@ -151,6 +150,7 @@ export function TransactionsPage() {
             >
               <TransactionsTable entries={data.items} />
             </div>
+
             <Pagination
               page={page}
               pageSize={pageSize}

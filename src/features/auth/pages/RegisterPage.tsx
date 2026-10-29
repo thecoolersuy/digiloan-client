@@ -5,6 +5,7 @@ import { registerSchema, type RegisterFormValues } from "../schemas/authSchema";
 import { useRegister, useDemoLogin } from "../hooks/useAuth";
 import { Info } from "lucide-react";
 import bankgif from "../../../../public/gifs/movingbank.gif";
+import Spinner from "../../../components/Spinner";
 
 export function RegisterPage() {
   const {
@@ -105,10 +106,9 @@ export function RegisterPage() {
 
           <button
             type="submit"
-            disabled={registerMutation.isPending}
-            className="bg-brand text-white font-bold uppercase tracking-wide py-3 rounded-sm hover:opacity-90 disabled:opacity-50 transition"
+            className="bg-brand text-white min-h-12 font-bold uppercase tracking-wide py-3 rounded-sm hover:opacity-90 disabled:opacity-50 transition"
           >
-            {registerMutation.isPending ? "Registering..." : "Register"}
+            {registerMutation.isPending ? <Spinner /> : "Register"}
           </button>
 
           <div className="relative flex items-center justify-center my-1">
