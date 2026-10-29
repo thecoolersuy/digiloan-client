@@ -21,41 +21,61 @@ export function DashboardSkeleton() {
             </div>
           ))}
         </div>
-
-        {/* Trend chart */}
+        {/* Trend chart skeleton */}
         <div className="rounded-2xl bg-white p-5 shadow-sm">
-          <div className="mb-6 flex items-center justify-between">
+          <div className="mb-5 flex items-center justify-between">
             <Skeleton className="h-6 w-24" />
 
-            <div className="flex gap-5">
-              <Skeleton className="h-4 w-16" />
-              <Skeleton className="h-4 w-16" />
+            <div className="flex items-center gap-5">
+              <div className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#d9dce4]" />
+                <Skeleton className="h-3.5 w-14" />
+              </div>
+
+              <div className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#d9dce4]" />
+                <Skeleton className="h-3.5 w-14" />
+              </div>
             </div>
           </div>
 
-          <div className="relative h-[200px] overflow-hidden">
-            <div className="absolute inset-x-0 top-1/2 border-t border-dashed border-gray-100" />
-            <div className="absolute inset-x-0 top-1/4 border-t border-dashed border-gray-100" />
-            <div className="absolute inset-x-0 top-3/4 border-t border-dashed border-gray-100" />
-
-            <div className="absolute bottom-7 left-0 right-0 flex items-end justify-between px-3">
-              {[35, 58, 42, 72, 48, 65, 38, 76, 52, 68, 44, 60].map(
-                (height, index) => (
-                  <div
-                    key={index}
-                    className="w-2 rounded-full bg-[#cccccc] sm:w-3"
-                    style={{ height: `${height}px` }}
-                  />
-                ),
-              )}
+          <div className="relative h-[220px] w-full overflow-hidden">
+            {/* Horizontal chart guides */}
+            <div className="absolute inset-0 flex flex-col justify-between pb-7">
+              {Array.from({ length: 5 }).map((_, index) => (
+                <div key={index} className="h-px w-full bg-[#eef0f3]" />
+              ))}
             </div>
 
-            <div className="absolute bottom-0 left-0 right-0 flex justify-between px-3">
-              <Skeleton className="h-3 w-8" />
-              <Skeleton className="h-3 w-8" />
-              <Skeleton className="h-3 w-8" />
-              <Skeleton className="h-3 w-8" />
-            </div>
+            {/* Soft chart line placeholder */}
+            <svg
+              viewBox="0 0 1000 220"
+              preserveAspectRatio="none"
+              className="absolute inset-0 h-full w-full"
+              aria-hidden="true"
+            >
+              <path
+                d="
+    M 0 112
+    C 55 108, 78 103, 112 91
+    C 155 76, 205 74, 250 78
+    C 310 83, 350 98, 400 106
+    C 445 113, 462 108, 485 84
+    C 510 61, 550 58, 578 82
+    C 603 103, 612 124, 638 126
+    C 665 128, 678 78, 708 66
+    C 740 53, 770 66, 790 89
+    C 810 109, 837 108, 861 101
+    C 899 91, 924 108, 950 100
+    C 970 94, 988 81, 1000 68
+  "
+                fill="none"
+                stroke="#bfc4d2"
+                strokeWidth="1.5"
+                vectorEffect="non-scaling-stroke"
+                className="animate-pulse"
+              />
+            </svg>
           </div>
         </div>
 
