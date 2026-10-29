@@ -7,7 +7,6 @@ import { useAccountOverview } from "../hooks/useAccountOverview";
 import { useSeedData } from "../../seed/hooks/useSeedData";
 import { useAuthStore } from "../../../stores/authStore";
 import { ArrowRight, Play } from "lucide-react";
-import Spinner from "../../../components/Spinner";
 import { DashboardSkeleton } from "../components/DashboardSkeleton";
 
 export function DashboardPage() {
