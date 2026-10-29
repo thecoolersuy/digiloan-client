@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
-import { TransactionsTable } from "../../../components/TransactionsTable";
+import { TransactionsTable } from "../components/TransactionsTable";
 import { Pagination } from "../components/Pagination";
 import { useTransactions } from "../hooks/useTransactions";
+import Spinner from "../../../components/Spinner";
 
 const pageSize = 10;
 
@@ -122,9 +123,7 @@ export function TransactionsPage() {
         </div>
 
         {isLoading && (
-          <p className="text-center py-20 text-gray-500">
-            Loading transactions...
-          </p>
+          <Spinner label="Please be patient, We are loading your data." />
         )}
         {isError && (
           <p className="text-center py-20 text-brand">

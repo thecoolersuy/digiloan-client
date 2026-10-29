@@ -7,6 +7,7 @@ import { useAccountOverview } from "../hooks/useAccountOverview";
 import { useSeedData } from "../../seed/hooks/useSeedData";
 import { useAuthStore } from "../../../stores/authStore";
 import { ArrowRight, Play } from "lucide-react";
+import Spinner from "../../../components/Spinner";
 
 export function DashboardPage() {
   const { data: overview, isLoading, isError } = useAccountOverview();
@@ -14,11 +15,7 @@ export function DashboardPage() {
   const fullName = useAuthStore((s) => s.fullName);
 
   if (isLoading)
-    return (
-      <p className="text-center py-20 text-gray-500">
-        Loading your dashboard...
-      </p>
-    );
+    return <Spinner label="Please be patient, We are loading your data." />;
   if (isError)
     return (
       <p className="text-center py-20 text-brand">
