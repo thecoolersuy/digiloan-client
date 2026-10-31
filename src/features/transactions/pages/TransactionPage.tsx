@@ -6,7 +6,6 @@ import { Pagination } from "../components/Pagination";
 import { useTransactions } from "../hooks/useTransactions";
 import { TransactionSkeleton } from "../components/TransactionsSkeleton";
 
-throw new Error("test")
 const pageSize = 10;
 
 const ranges = [
