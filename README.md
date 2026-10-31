@@ -8,7 +8,7 @@
 
 The React + TypeScript frontend for **DigiLoan**, an instant micro-lending app. It reads a customer's last 30 days of account activity, decides whether they qualify for a loan, prices it, and disburses it against a double-entry ledger.
 
-**[Live demo]([YOUR-VERCEL-URL])** · **[Backend repo (ASP.NET Core)]([YOUR-BACKEND-REPO-URL])** · **[API docs (Swagger)]([YOUR-API-URL]/swagger)**
+**[Live demo](https://digiloan.vercel.app/login)** · **[Backend repo (ASP.NET Core)](https://github.com/thecoolersuy/digiloan-escrow-ledger)** · **[API docs (Scalar/Swagger)](https://digiloan.runasp.net/scalar/)**
 
 > The demo runs on free hosting in MonsterAsp.Net. If the API has been idle, the first request can take up to a minute while it wakes up. After that it's fast.
 
