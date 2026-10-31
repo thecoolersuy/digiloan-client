@@ -22,7 +22,7 @@ import { ArrowRight, Eye, Info } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 type Step = "landing" | "check" | "apply" | "disbursed";
-function RequestLoanPage() {
+export function RequestLoanPage() {
   const queryClient = useQueryClient();
   const [step, setStep] = useState<Step>("landing");
   const [result, setResult] = useState<LoanApplicationResult | null>(null);
@@ -240,5 +240,3 @@ function RequestLoanPage() {
     </section>
   );
 }
-
-export default RequestLoanPage;

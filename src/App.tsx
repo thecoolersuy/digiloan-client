@@ -3,10 +3,26 @@ import { LoginPage } from "./features/auth/pages/LoginPage";
 import { ProtectedRoute } from "./routes/ProtectedRoute";
 import { RegisterPage } from "./features/auth/pages/RegisterPage";
 import { AppLayout } from "./layouts/AppLayout";
-import { DashboardPage } from "./features/dashboard/pages/DashboardPage";
-import { TransactionsPage } from "./features/transactions/pages/TransactionPage";
-import RequestLoanPage from "./features/loans/pages/RequestLoanPage";
 import NotFoundPage from "./components/NotFoundPage";
+import { lazy } from "react";
+
+const DashboardPage = lazy(() =>
+  import("./features/dashboard/pages/DashboardPage").then((m) => ({
+    default: m.DashboardPage,
+  })),
+);
+
+const TransactionsPage = lazy(() =>
+  import("./features/transactions/pages/TransactionPage").then((m) => ({
+    default: m.TransactionsPage,
+  })),
+);
+
+const RequestLoanPage = lazy(() =>
+  import("./features/loans/pages/RequestLoanPage").then((m) => ({
+    default: m.RequestLoanPage,
+  })),
+);
 
 function App() {
   return (

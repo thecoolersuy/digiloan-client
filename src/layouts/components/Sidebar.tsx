@@ -5,6 +5,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { NavLink } from "react-router-dom";
+import { UserMenu } from "./UserMenu";
 
 interface NavigationItem {
   label: string;
@@ -54,6 +55,9 @@ export function Sidebar() {
           ))}
         </ul>
       </nav>
+      <div className="mt-auto">
+        <UserMenu />
+      </div>
     </aside>
   );
 }
